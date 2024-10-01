@@ -3,4 +3,4 @@ newspaper3k==0.2.8
 nltk==3.6.7
 pyngrok==5.2.1
 langchain_groq
-gunicorn==20.1.0  # Add this line
+gunicorn==20.1.0  
