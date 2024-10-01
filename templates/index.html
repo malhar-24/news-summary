@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Summarizer</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>News Summarizer & Q&A</h1>
+
+    <!-- Input for URL -->
+    <div>
+        <label for="url">Enter News URL:</label>
+        <input type="text" id="url" placeholder="Enter news article URL">
+        <button id="summarize-btn">Summarize</button>
+    </div>
+
+    <!-- Section to display summary -->
+    <div id="summary-section" style="display:none;">
+        <h2>Summary</h2>
+        <p id="summary"></p>
+    </div>
+
+    <!-- Chat box to ask questions -->
+    <div id="chat-box" style="display:none;">
+        <h2>Ask a Question</h2>
+        <textarea id="question" rows="4" cols="50" placeholder="Ask a question about the summary"></textarea><br>
+        <button id="ask-btn">Send</button>
+        <h3>Answer:</h3>
+        <p id="answer"></p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Summarize button click
+            $('#summarize-btn').click(function() {
+                const url = $('#url').val();
+                if (url) {
+                    $.post('/summarize', {url: url}, function(data) {
+                        if (data.error) {
+                            alert(data.error);
+                        } else {
+                            $('#summary').text(data.summary);
+                            $('#summary-section').show();
+                            $('#chat-box').show();
+                        }
+                    });
+                }
+            });
+
+            // Send button click for asking questions
+            $('#ask-btn').click(function() {
+                const summary = $('#summary').text();
+                const question = $('#question').val();
+                if (question) {
+                    $.post('/ask_question', {summary: summary, question: question}, function(data) {
+                        $('#answer').text(data.answer);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
