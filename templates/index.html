@@ -19,7 +19,7 @@
         </div>
 
         <!-- Features Section -->
-        <div class="features-section">
+        <div class="features-section" id="features-section">
             <div class="feature-box">
                 <h3>Summarize News</h3>
                 <p>Quickly summarize the content of any news article.</p>
@@ -61,7 +61,7 @@
                             alert(data.error);
                         } else {
                             $('#summary').text(data.summary);
-                            $('#summary-section').hide();
+                            $('#features-section').hide();
                             $('#summary-section').show();
                             $('#chat-box').show();
                         }
