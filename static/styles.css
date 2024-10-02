@@ -53,10 +53,9 @@ body {
 }
 
 .feature-box {
-    background-color: #007bff;
+    background-color: #0f1f30;
     color: white;
     padding: 20px;
-    border-radius: 8px;
     width: 30%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
