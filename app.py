@@ -9,23 +9,29 @@ nltk.download('punkt')
 
 app = Flask(__name__)
 
-# Function to summarize the news
+# Function to summarize the news and fetch the top image
 def summarize_news(url):
     try:
         article = Article(url)
         article.download()
         article.parse()
         article.nlp()
+        
+        # Fetch the top image
+        top_image = article.top_image
+        
         return {
             'title': article.title,
             'authors': article.authors,
             'publish_date': article.publish_date,
-            'summary': article.summary
+            'summary': article.summary,
+            'top_image': top_image  # Add top image URL to the response
         }
     except ArticleException as e:
         return {'error': f"Failed to download or process the article: {e}"}
     except Exception as e:
         return {'error': f"An error occurred: {e}"}
+
 
 # Function to ask a question about the summary
 def ask_question_about_summary(summary, question):
