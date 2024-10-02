@@ -86,7 +86,7 @@ body {
 /* Message styles */
 .message {
     padding: 10px;
-    margin: 5px 0;
+    margin: 13px 4px;
     border-radius: 8px;
     max-width: 80%;
 }
