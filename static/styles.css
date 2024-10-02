@@ -80,12 +80,42 @@ body {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-#chat-box textarea {
-    width: 80%;
+/* Message styles */
+.message {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    max-width: 80%;
+}
+
+.message.user {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto; /* Align user messages to the right */
+}
+
+.message.bot {
+    background-color: #e9ecef;
+    color: black;
+}
+
+/* Input group styles */
+.input-group {
+    display: flex;
+    justify-content: space-between; /* Align textarea and button to opposite sides */
+    align-items: center;
+}
+
+#question {
+    width: 80%; /* Take most of the width */
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin-right: 10px; /* Space between input and button */
+    resize: none; /* Prevent resizing */
 }
+
