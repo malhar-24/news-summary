@@ -73,29 +73,6 @@ body {
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-/* Other existing CSS rules... */
-
-/* Image section styling */
-#image-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the image */
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Image styling */
-#article-image {
-    max-width: 150px; /* Set a maximum width for smaller size */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 4px; /* Optional: Round corners */
-    margin-top: 10px; /* Space above the image */
-}
-
-
 
 /* Chat box section */
 #chat-box {
