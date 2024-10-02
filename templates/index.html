@@ -4,31 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Summarizer</title>
+    <link rel="stylesheet" href="styles.css"> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>News Summarizer & Q&A</h1>
+    <div class="container">
+        <h1>News Summarizer & Q&A</h1>
 
-    <!-- Input for URL -->
-    <div>
-        <label for="url">Enter News URL:</label>
-        <input type="text" id="url" placeholder="Enter news article URL">
-        <button id="summarize-btn">Summarize</button>
-    </div>
+        <!-- Input for URL -->
+        <div class="input-section">
+            <label for="url">Enter News URL:</label>
+            <input type="text" id="url" placeholder="Enter news article URL">
+            <button id="summarize-btn" class="btn">Summarize</button>
+        </div>
 
-    <!-- Section to display summary -->
-    <div id="summary-section" style="display:none;">
-        <h2>Summary</h2>
-        <p id="summary"></p>
-    </div>
+        <!-- Features Section -->
+        <div class="features-section">
+            <div class="feature-box">
+                <h3>Summarize News</h3>
+                <p>Quickly summarize the content of any news article.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Q&A</h3>
+                <p>Ask questions based on the article summary and get instant answers.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Save Time</h3>
+                <p>Get a quick overview without reading the full article.</p>
+            </div>
+        </div>
 
-    <!-- Chat box to ask questions -->
-    <div id="chat-box" style="display:none;">
-        <h2>Ask a Question</h2>
-        <textarea id="question" rows="4" cols="50" placeholder="Ask a question about the summary"></textarea><br>
-        <button id="ask-btn">Send</button>
-        <h3>Answer:</h3>
-        <p id="answer"></p>
+        <!-- Section to display summary -->
+        <div id="summary-section" style="display:none;">
+            <h2>Summary</h2>
+            <p id="summary"></p>
+        </div>
+
+        <!-- Chat box to ask questions -->
+        <div id="chat-box" style="display:none;">
+            <h2>Ask a Question</h2>
+            <textarea id="question" rows="4" cols="50" placeholder="Ask a question about the summary"></textarea><br>
+            <button id="ask-btn" class="btn">Send</button>
+            <h3>Answer:</h3>
+            <p id="answer"></p>
+        </div>
     </div>
 
     <script>
@@ -42,6 +61,7 @@
                             alert(data.error);
                         } else {
                             $('#summary').text(data.summary);
+                            $('#summary-section').hide();
                             $('#summary-section').show();
                             $('#chat-box').show();
                         }
