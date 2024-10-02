@@ -38,6 +38,12 @@
         <div id="summary-section" style="display:none;">
             <h2>Summary</h2>
             <p id="summary"></p>
+
+            <!-- Section to display the top image -->
+            <div id="image-section" style="display:none;">
+                <h2>Top Image</h2>
+                <img id="article-image" src="" alt="Article Image" style="max-width: 100%; height: auto;">
+            </div>
         </div>
 
         <!-- Chat box to ask questions -->
@@ -61,6 +67,13 @@
                             alert(data.error);
                         } else {
                             $('#summary').text(data.summary);
+
+                            // Show top image if available
+                            if (data.top_image) {
+                                $('#article-image').attr('src', data.top_image);
+                                $('#image-section').show();
+                            }
+
                             $('#features-section').hide();
                             $('#summary-section').show();
                             $('#chat-box').show();
@@ -83,3 +96,4 @@
     </script>
 </body>
 </html>
+
