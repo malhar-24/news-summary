@@ -49,10 +49,13 @@
         <!-- Chat box to ask questions -->
         <div id="chat-box" style="display:none;">
             <h2>Ask a Question</h2>
-            <textarea id="question" rows="4" cols="50" placeholder="Ask a question about the summary"></textarea><br>
-            <button id="ask-btn" class="btn">Send</button>
-            <h3>Answer:</h3>
-            <p id="answer"></p>
+            <div id="messages" style="overflow-y: auto; max-height: 300px; border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; background-color: #f9f9f9;">
+                <!-- Messages will be appended here -->
+            </div>
+            <div class="input-group">
+                <textarea id="question" rows="2" placeholder="Ask a question about the summary"></textarea>
+                <button id="ask-btn" class="btn">Send</button>
+            </div>
         </div>
     </div>
 
@@ -87,8 +90,16 @@
                 const summary = $('#summary').text();
                 const question = $('#question').val();
                 if (question) {
+                    // Append user's question to messages
+                    $('#messages').append(`<div class="message user">${question}</div>`);
+                    $('#question').val(''); // Clear the input
+
                     $.post('/ask_question', {summary: summary, question: question}, function(data) {
-                        $('#answer').text(data.answer);
+                        // Append bot's answer to messages
+                        $('#messages').append(`<div class="message bot">${data.answer}</div>`);
+                        
+                        // Scroll to the bottom of the messages
+                        $('#messages').animate({ scrollTop: $('#messages')[0].scrollHeight }, 500);
                     });
                 }
             });
