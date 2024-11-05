@@ -62,9 +62,9 @@ The **AI News Summary App** is a web application that provides quick summaries o
 ![Home Screen](photos/Screenshot(2).png)
 
 ### Summarized Article with Top Image
-![Summary Section](images/summary_section.png)
+![Summary Section](photos/Screenshot(4).png)
 
 ### Q&A Chat Interface
-![Q&A Chat](images/chat_interface.png)
+![Q&A Chat](photos/Screenshot(6).png)
 
 ---
