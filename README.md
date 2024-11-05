@@ -1,5 +1,5 @@
 # AI News Summary App
-
+Hosted (wait for 1 min and keep reloading) - https://news-summary-eo7l.onrender.com/ 
 ## Table of Contents
 - [Overview](#overview)
 - [Features](#features)
